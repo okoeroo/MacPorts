@@ -23,7 +23,6 @@ git.branch          2_0_8
 
 use_autoreconf      yes
 
-
 depends_lib         port:openssl
 
 test.run            yes
