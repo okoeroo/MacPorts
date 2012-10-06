@@ -1,0 +1,29 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 1 2012-10-05 21:55:00Z okoeroo@nikhef.nl $
+
+PortSystem          1.0
+
+name                voms-cli
+version             2.0.7
+revision            0
+categories          security
+platforms           darwin
+maintainers         nikhef.nl:okoeroo
+license             Apache2
+
+description         create a proxy with VOMS extensions
+
+long_description    The voms-proxy-init generates a proxy with the VOMS information included in a non critical extension.
+
+homepage            https://github.com/italiangrid/voms
+#master_sites        ${homepage}dist/
+master_sites        https://www.nikhef.nl/tmpfiles/okoeroo/voms-cli
+
+checksums           rmd160  af93278a97ba9c6bbcc364c5735d9d6b4fe998db \
+                    sha256  7b8924268ce12e346a1ed43642e83e82e92ae315d8703448df48e1a8d52be7ff
+
+depends_lib         port:openssl
+
+test.run            yes
+test.target         check
+
