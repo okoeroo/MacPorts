@@ -30,6 +30,7 @@ depends_lib         port:openssl \
                     port:libevent
 
 configure.cmd       cmake
+configure.pre_args  -DCMAKE_INSTALL_PREFIX=${prefix}
 
 test.run            yes
 test.target         check
