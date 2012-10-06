@@ -1,0 +1,36 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 2 2012-10-06 20:47:00Z okoeroo@nikhef.nl $
+
+PortSystem          1.0
+
+name                libevhtp
+version             1.1.4
+revision            0
+categories          devel
+platforms           darwin
+maintainers         nikhef.nl:okoeroo
+license             BSD
+
+description         libevhtp is a replacement API for Libevent s current HTTP API
+
+long_description    Libevhtp was created as a replacement API for Libevent s current HTTP API. \
+                    The reality of libevent s http interface is that it was created as a JIT server, \
+                    meaning the developer never thought of it being used for creating a full-fledged \
+                    HTTP service. Infact I am under the impression that the libevent http API was \
+                    designed almost as an example of what you can do with libevent. It's not Apache \
+                    in a box, but more and more developers are attempting to use it as so.
+
+homepage            https://github.com/ellzey/libevhtp
+
+fetch.type          git
+git.url             https://github.com/ellzey/libevhtp.git
+git.branch          1.1.4
+
+depends_lib         port:openssl \
+                    port:libevent
+
+configure.cmd       cmake
+
+test.run            yes
+test.target         check
+
