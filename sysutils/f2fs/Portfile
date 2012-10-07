@@ -1,0 +1,29 @@
+# -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
+# $Id: Portfile 1 2012-10-05 21:55:00Z okoeroo@nikhef.nl $
+
+PortSystem          1.0
+
+name                f2fs-tools
+version             1.0.0
+revision            0
+categories          sysutils
+platforms           darwin
+maintainers         nikhef.nl:okoeroo
+license             GPL-2
+
+description         Tools for Flash-Friendly File System (F2FS)
+
+long_description    Tools for Flash-Friendly File System (F2FS). Currently, the tools include mkfs.f2fs only, but later fsck and debugging tools will be added. In order to use F2FS, simply; mkfs.f2fs -l f2fs /dev/block_device ; mount -t f2fs /dev/block_device /mnt
+
+
+homepage            http://${name}.sourceforge.net/
+master_sites        sourceforge:projects/${name}/files/${name}-${version}.tar.gz
+
+use_autoreconf      yes
+
+test.run            yes
+test.target         check
+
+pre-configure {
+    system "cd ${worksrcpath}; autoreconf --install"
+}
