@@ -34,5 +34,5 @@ test.run            yes
 test.target         check
 
 pre-configure {
-    system "cd ${worksrcpath}; /bin/bash autogen.sh"
+    system "cd ${worksrcpath}; /bin/bash bootstrap"
 }
