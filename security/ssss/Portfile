@@ -1,11 +1,10 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id: Portfile 1 2012-10-10 20:28:00Z okoeroo@nikhef.nl $
+# $Id$
 
 PortSystem          1.0
+PortGroup           github 1.0
 
-name                ssss
-version             1.0.1
-revision            0
+github.setup        okoeroo ssss 1.0.1
 categories          security
 platforms           darwin
 maintainers         nikhef.nl:okoeroo
@@ -20,11 +19,8 @@ long_description    Shamir's Secret Sharing is an algorithm in cryptography. It 
                     sometimes the threshold scheme is used where any k of the parts are sufficient to reconstruct the \
                     original secret.
 
-homepage            https://github.com/okoeroo/ssss
-
-fetch.type          git
-git.url             https://github.com/okoeroo/ssss/
-git.branch          1.0.1
+checksums           rmd160  432c61abc826709ac54b0d5a4d9a42ec7cfc50a5 \
+                    sha256  bc3268882ee8f9a4887933542dbe0023eefc738d13b9562a14a9d3391f60233f
 
 use_autoreconf      yes
 
@@ -34,5 +30,5 @@ test.run            yes
 test.target         check
 
 pre-configure {
-    system "cd ${worksrcpath}; /bin/bash bootstrap"
+    system -W ${worksrcpath} "/bin/bash bootstrap"
 }
