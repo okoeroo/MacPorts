@@ -19,10 +19,8 @@ long_description    Shamir's Secret Sharing is an algorithm in cryptography. It 
                     sometimes the threshold scheme is used where any k of the parts are sufficient to reconstruct the \
                     original secret.
 
-checksums           rmd160  432c61abc826709ac54b0d5a4d9a42ec7cfc50a5 \
-                    sha256  bc3268882ee8f9a4887933542dbe0023eefc738d13b9562a14a9d3391f60233f
-
-use_autoreconf      yes
+checksums           rmd160 52db3ea26b68202e17057f30934c83dcf666ed0d \
+                    sha256 d936cd1bd36ca0d5fe0f0e9401d5f3d1f2ea458bd218b6245c7b80de10661a53 
 
 depends_lib         port:openssl
 
@@ -30,5 +28,6 @@ test.run            yes
 test.target         check
 
 pre-configure {
+    system -W ${worksrcpath} "/bin/mkdir project"
     system -W ${worksrcpath} "/bin/bash bootstrap"
 }
