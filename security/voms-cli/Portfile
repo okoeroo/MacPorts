@@ -2,8 +2,11 @@
 # $Id: Portfile 1 2012-10-05 21:55:00Z okoeroo@nikhef.nl $
 
 PortSystem          1.0
+PortGroup           github 1.0
 
-name                voms-cli
+github.setup        italiangrid voms 2_0_8
+
+name                voms
 version             2.0.8
 revision            0
 categories          security
@@ -17,17 +20,18 @@ long_description    The voms-proxy-init generates a proxy with the VOMS informat
 
 homepage            https://github.com/italiangrid/voms
 
-fetch.type          git
-git.url             https://github.com/italiangrid/voms.git
-git.branch          2_0_8
+checksums           rmd160 5352fd13b1687791d4e5fead13e2fe79ba65cf0d \
+                    sha256 38a7e784af49ee6385c5a8659559d1d40a64c9bbc81aaeb79956eed0af9a3ba0
 
-use_autoreconf      yes
+depends_build       port:autoconf \
+                    port:automake \
+                    port:libtool
 
 depends_lib         port:openssl
 
+pre-configure {
+    system -W ${worksrcpath} "./autogen.sh"
+}
+
 test.run            yes
 test.target         check
-
-pre-configure {
-    system "cd ${worksrcpath}; /bin/bash autogen.sh"
-}
