@@ -1,14 +1,11 @@
 # -*- coding: utf-8; mode: tcl; tab-width: 4; indent-tabs-mode: nil; c-basic-offset: 4 -*- vim:fenc=utf-8:ft=tcl:et:sw=4:ts=4:sts=4
-# $Id: Portfile 1 2012-10-05 21:55:00Z okoeroo@nikhef.nl $
+# $Id: Portfile 1 2012-10-15 16:55:00Z okoeroo@nikhef.nl $
 
 PortSystem          1.0
 PortGroup           github 1.0
 
 github.setup        italiangrid voms 2_0_8
-
-name                voms
-version             2.0.8
-revision            0
+version             [strsed ${github.version} {g/_/./}]
 categories          security
 platforms           darwin
 maintainers         nikhef.nl:okoeroo
@@ -17,8 +14,6 @@ license             Apache-2
 description         create a proxy with VOMS extensions
 
 long_description    The voms-proxy-init generates a proxy with the VOMS information included in a non critical extension.
-
-homepage            https://github.com/italiangrid/voms
 
 checksums           rmd160 5352fd13b1687791d4e5fead13e2fe79ba65cf0d \
                     sha256 38a7e784af49ee6385c5a8659559d1d40a64c9bbc81aaeb79956eed0af9a3ba0
